@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">RadMovies RF</string>
+    <string name="gnrl_id_received">Id recibido:</string>
+    <string name="error_no_conexion">No hay conexión</string>
+    <string name="response_server">Respuesta del servidor:</string>
+    <string name="error_dots">Error:</string>
+    <string name="gnrl_title">Title</string>
+    <string name="grnl_release">Año de lanzamiento:</string>
+    <string name="grnl_replace_year">año</string>
+    <string name="gnrl_desc">Description</string>
+    <string name="grnl_classif">Clasificación</string>
+    <string name="gnrl_producer">Productora</string>
+    <string name="gnrl_genre">Genero</string>
+    <string name="gnrl_year">Año</string>
+
+
+</resources>
