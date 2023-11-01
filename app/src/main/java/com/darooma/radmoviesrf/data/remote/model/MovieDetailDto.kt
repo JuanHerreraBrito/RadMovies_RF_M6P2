@@ -18,5 +18,7 @@ data class MovieDetailDto(
     @SerializedName("image")
     var image: String? = null,
     @SerializedName("synopsis")
-    var synopsis: String? = null
+    var synopsis: String? = null,
+    @SerializedName("video")
+    var video: String? = null
 )

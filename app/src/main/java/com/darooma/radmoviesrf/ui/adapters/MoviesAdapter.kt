@@ -1,9 +1,11 @@
 package com.darooma.radmoviesrf.ui.adapters
 
+import android.media.MediaPlayer
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.darooma.radmoviesrf.R
 import com.darooma.radmoviesrf.data.remote.model.MovieDto
 import com.darooma.radmoviesrf.databinding.MovieElementBinding
 
@@ -12,6 +14,8 @@ class MoviesAdapter(
     private val movies: List<MovieDto>,
     private val onMovieClicked: (MovieDto) -> Unit
 ): RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+
+    private lateinit var mp : MediaPlayer
 
     class ViewHolder(private val binding: MovieElementBinding): RecyclerView.ViewHolder(binding.root){
 
@@ -47,6 +51,8 @@ class MoviesAdapter(
 
         //Procesar click al elemento
         holder.itemView.setOnClickListener {
+            mp = MediaPlayer.create(holder.itemView.context, R.raw.listen_navi)
+            mp.start()
             onMovieClicked(movie)
         }
     }

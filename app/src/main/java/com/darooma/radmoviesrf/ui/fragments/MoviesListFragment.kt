@@ -1,5 +1,7 @@
 package com.darooma.radmoviesrf.ui.fragments
 
+import android.app.AlertDialog
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.darooma.radmoviesrf.R
@@ -29,6 +32,7 @@ class MoviesListFragment : Fragment() {
 
     private lateinit var repository: MovieRepository
 
+    private lateinit var mp : MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,6 +49,9 @@ class MoviesListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mp = MediaPlayer.create(context, R.raw.guitar_blinkintrocut)
+        mp.start()
+
 
         repository = (requireActivity().application as RadMovieRFApp).repository
         lifecycleScope.launch {
@@ -78,9 +85,32 @@ class MoviesListFragment : Fragment() {
                 override fun onFailure(call: Call<List<MovieDto>>, t: Throwable) {
                     Log.d(Constants.LOGTAG, "${R.string.error_dots} ${t.message}")
 
-                    Toast.makeText(requireActivity(), R.string.error_no_conexion, Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireActivity(), R.string.error_no_conexion, Toast.LENGTH_SHORT).show()
 
                     binding.pbLoading.visibility = View.GONE
+
+                    AlertDialog.Builder(requireContext())
+                        .setTitle("Error")
+                        .setMessage("Verificar que se tenga conexión a internet y da clic en aceptar")
+                        .setNeutralButton("Aceptar"){dialog, _ ->
+                            //Toast.makeText(requireActivity(), "${R.string.error_no_conexion} ${t.message}", Toast.LENGTH_SHORT).show()
+
+                            dialog.dismiss()
+                            //val ft = parentFragmentManager.beginTransaction()
+                            //ft.detach(this@MoviesListFragment).attach(this@MoviesListFragment).commit()
+
+                            //val ft = parentFragmentManager.beginTransaction()
+                            //ft.detach(this@MoviesListFragment)
+                            //    .attach(this@MoviesListFragment).commit()
+
+                            requireActivity().supportFragmentManager.beginTransaction()
+                                .replace(R.id.fragment_container, MoviesListFragment.newInstance())
+                                .addToBackStack(null)
+                                .commit()
+                        }
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .create()
+                        .show()
 
                 }
 
@@ -91,6 +121,14 @@ class MoviesListFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            MoviesListFragment().apply {
+
+            }
     }
 
 

@@ -121,6 +121,19 @@
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         tools:text="@string/gnrl_desc" />
+
+                    <ImageButton
+                        android:id="@+id/ibOpenVideo"
+                        android:src="@drawable/play_btn"
+                        android:scaleType="fitCenter"
+                        android:layout_width="150dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        />
+                    <VideoView
+                        android:id="@+id/vvVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
                 </LinearLayout>
             </ScrollView>
 
@@ -129,6 +142,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_centerInParent="true"
+
                 />
 
         </RelativeLayout>
