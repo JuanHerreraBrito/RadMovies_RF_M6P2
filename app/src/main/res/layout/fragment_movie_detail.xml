@@ -44,7 +44,7 @@
                         android:paddingBottom="10dp"
                         android:textColor="@color/white"
                         android:textSize="25sp"
-                        tools:text="Title" />
+                        tools:text="@string/title" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
                         android:id="@+id/ivImage"
@@ -123,12 +123,22 @@
                         tools:text="@string/gnrl_desc" />
 
                     <ImageButton
+                        android:id="@+id/ibMapsLocation"
+                        android:src="@drawable/map"
+                        android:scaleType="fitCenter"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        />
+
+
+                    <ImageButton
                         android:id="@+id/ibOpenVideo"
                         android:src="@drawable/play_btn"
                         android:scaleType="fitCenter"
                         android:layout_width="150dp"
                         android:layout_height="60dp"
-                        android:layout_gravity="center"
+                        android:layout_gravity="right"
                         />
                     <VideoView
                         android:id="@+id/vvVideo"

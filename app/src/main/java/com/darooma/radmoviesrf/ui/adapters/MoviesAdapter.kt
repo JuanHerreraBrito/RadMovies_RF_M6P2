@@ -55,5 +55,7 @@ class MoviesAdapter(
             mp.start()
             onMovieClicked(movie)
         }
+
+
     }
 }

@@ -1,7 +1,6 @@
 package com.darooma.radmoviesrf.ui.fragments
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
@@ -11,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.MediaController
-import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.darooma.radmoviesrf.R
@@ -75,6 +73,18 @@ class MovieDetailFragment : Fragment() {
                                     binding.vvVideo.start()
                                 }
 
+                                ibMapsLocation.setOnClickListener {
+                                    requireActivity().getSupportFragmentManager().popBackStack();
+                                    requireActivity().supportFragmentManager.beginTransaction()
+                                        .replace(R.id.fragment_container, MapLocationFragment.newInstance(
+                                            response.body()?.latitud,
+                                            response.body()?.longitud,
+                                            response.body()?.maptext
+                                        ))
+                                        .addToBackStack("showMap")
+                                        .commit()
+                                }
+
                                 Glide.with(requireContext())
                                     .load(response.body()?.image)
                                     .into(ivImage)
@@ -95,9 +105,9 @@ class MovieDetailFragment : Fragment() {
 //
 //                            val dialog: AlertDialog? = builder?.create()
                             AlertDialog.Builder(requireContext())
-                                .setTitle("Error")
-                                .setMessage("Verificar que se tenga conexión a internet y da clic en aceptar, seras llevado al listado incial")
-                                .setNeutralButton("Aceptar"){dialog, _ ->
+                                .setTitle(getString(R.string.error_msg))
+                                .setMessage(getString(R.string.check_internet_msg))
+                                .setNeutralButton(getString(R.string.acept_title)){ dialog, _ ->
                                     //Toast.makeText(requireActivity(), "${R.string.error_no_conexion} ${t.message}", Toast.LENGTH_SHORT).show()
 
                                     dialog.dismiss()
@@ -143,7 +153,11 @@ class MovieDetailFragment : Fragment() {
         fun newInstance(movieId: String) =
             MovieDetailFragment().apply {
                 arguments = Bundle().apply {
-                    putString(MOVIE_ID, movieId)
+                    if(movieId.isNotEmpty()) {
+                        putString(MOVIE_ID, movieId)
+                    }else{
+                        putString(MOVIE_ID, getString(R.string.default_movie))
+                    }
                 }
             }
     }

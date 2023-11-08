@@ -12,6 +12,42 @@
     <string name="gnrl_producer">Productora</string>
     <string name="gnrl_genre">Genero</string>
     <string name="gnrl_year">Año</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_location">Ubicación del Set</string>
+    <string name="default_movie">00000001</string>
+    <string name="error_msg">Error</string>
+    <string name="check_internet_msg">Verificar que se tenga conexión a internet y da clic en aceptar, seras llevado al listado incial</string>
+    <string name="acept_title">Aceptar</string>
+    <string name="pass">Contraseña</string>
+    <string name="log_in">Ingresar</string>
+    <string name="sing_in">Registrarse</string>
+    <string name="get_new_pass">¿Olvidó su contraseña? Restablecer aquí</string>
+    <string name="title">Title</string>
+    <string name="mail_send">El correo de verificación ha sido enviado</string>
+    <string name="error_sendind">No se pudo enviar el correo de verificación</string>
+    <string name="user_created">Usuario creado</string>
+    <string name="set_new_pass">Restablecer contraseña</string>
+    <string name="set_mail_to_new_pass">Ingrese su correo para recibir el enlace para restablecer</string>
+    <string name="send">Enviar</string>
+    <string name="link_sended">El enlace para restablecer la contraseña ha sido enviado a su correo</string>
+    <string name="error_send_link">\"El enlace no se ha podido enviar: \"</string>
+    <string name="insert_mail">Favor de ingresar la dirección de correo</string>
+    <string name="cancel">Cancelar</string>
+    <string name="mail_required">Se requiere el correo</string>
+    <string name="bad_pass">Se requiere una contraseña o la contraseña no tiene por lo menos 6 caracteres</string>
+    <string name="succes_logging">Autentitcacion exitosa</string>
+    <string name="error_bad_mail_format">Error: El correo electrónico no tiene un formato correcto</string>
+    <string name="error_pass_invalid">Error: La contraseña no es válida</string>
+    <string name="error_pass_invalid_ne">La contraseña no es válida</string>
+    <string name="error_mail_exist">Error: Una cuenta ya existe con el mismo correo, pero con diferentes datos de ingreso</string>
+    <string name="error_mail_in_use">Error: el correo electrónico ya está en uso con otra cuenta.</string>
+    <string name="error_expired_sesion">Error: La sesión ha expirado. Favor de ingresar nuevamente.</string>
+    <string name="error_user_not_found">Error: No existe el usuario con la información proporcionada.</string>
+    <string name="pass_invalid">La contraseña porporcionada es inválida</string>
+    <string name="pass_min_must_6">La contraseña debe de tener por lo menos 6 caracteres</string>
+    <string name="bad_network">Red no disponible o se interrumpió la conexión</string>
+    <string name="error_bad_authentication">Error. No se pudo autenticar exitosamente.</string>
 
 
 </resources>

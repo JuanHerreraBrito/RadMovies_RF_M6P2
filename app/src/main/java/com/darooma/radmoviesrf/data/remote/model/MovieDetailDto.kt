@@ -20,5 +20,11 @@ data class MovieDetailDto(
     @SerializedName("synopsis")
     var synopsis: String? = null,
     @SerializedName("video")
-    var video: String? = null
+    var video: String? = null,
+    @SerializedName("latitud")
+    var latitud: String? = null,
+    @SerializedName("longitud")
+    var longitud: String? = null,
+    @SerializedName("maptext")
+    var maptext: String? = null
 )
